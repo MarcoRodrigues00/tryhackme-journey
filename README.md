@@ -7,7 +7,7 @@
 ![Started](https://img.shields.io/badge/started-Oct%2021%2C%202026-lightgrey)
 
 **Marco Rodrigues** · Cybersecurity student @ PUCPR (Brazil) · CompTIA Security+ (SY0-701)
-TryHackMe profile: `<TRYHACKME_PROFILE_URL>`
+TryHackMe profile: [tryhackme.com/p/marcorodrigues](https://tryhackme.com/p/marcorodrigues)
 
 ---
 

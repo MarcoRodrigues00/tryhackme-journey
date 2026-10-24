@@ -4,7 +4,7 @@
 
 ![Path](https://img.shields.io/badge/path-SOC%20Level%201-blue)
 ![Progress](https://img.shields.io/badge/progress-~20%25-orange)
-![Started](https://img.shields.io/badge/started-Oct%2021%2C%202026-lightgrey)
+![Started](https://img.shields.io/badge/started-Oct%2020%2C%202026-lightgrey)
 
 **Marco Rodrigues** · Cybersecurity student @ PUCPR (Brazil) · CompTIA Security+ (SY0-701)
 TryHackMe profile: [tryhackme.com/p/marcorodrigues](https://tryhackme.com/p/marcorodrigues)
@@ -23,21 +23,21 @@ TryHackMe profile: [tryhackme.com/p/marcorodrigues](https://tryhackme.com/p/marc
 
 | Date | Module | Room | Key takeaway |
 |---|---|---|---|
-| Oct 21 | Blue Team Introduction | Junior Security Analyst Intro | Daily routine and responsibilities of an L1 analyst |
-| Oct 21 | Blue Team Introduction | SOC Role in Blue Team | SOC tiers (L1/L2/L3) and how the career progresses |
-| Oct 21 | Blue Team Introduction | Humans as Attack Vectors | Phishing and social engineering as the main entry points |
-| Oct 21 | Blue Team Introduction | Systems as Attack Vectors | How vulnerable and misconfigured systems get exploited |
-| Oct 21 | SOC Team Internals | SOC L1 Alert Triage | Systematic triage: TP/FP (True/False Positive), severity, context |
-| Oct 21 | SOC Team Internals | SOC L1 Alert Reporting | When and how to escalate; writing clear incident reports |
-| Oct 21 | SOC Team Internals | SOC Workbooks and Lookups | Workbooks and asset/identity lookups to speed up triage |
-| Oct 21 | SOC Team Internals | SOC Metrics and Objectives | MTTD (Mean Time to Detect), MTTR (Mean Time to Respond), FP rate |
-| Oct 21 | SOC Team Internals | Introduction to Phishing *(SOC Simulator)* | First hands-on triage in a simulated SOC queue |
-| Oct 22–23 | Core SOC Solutions | Introduction to EDR | EDR (Endpoint Detection and Response): endpoint telemetry and response |
-| Oct 22–23 | Core SOC Solutions | Introduction to SIEM | Log collection, correlation and alerting |
-| Oct 22–23 | Core SOC Solutions | Splunk: The Basics | Log investigations with SPL (Search Processing Language) |
+| Oct 20 | Blue Team Introduction | Junior Security Analyst Intro | Daily routine and responsibilities of an L1 analyst |
+| Oct 20 | Blue Team Introduction | SOC Role in Blue Team | SOC tiers (L1/L2/L3) and how the career progresses |
+| Oct 20 | Blue Team Introduction | Humans as Attack Vectors | Phishing and social engineering as the main entry points |
+| Oct 20 | Blue Team Introduction | Systems as Attack Vectors | How vulnerable and misconfigured systems get exploited |
+| Oct 20 | SOC Team Internals | SOC L1 Alert Triage | Systematic triage: TP/FP (True/False Positive), severity, context |
+| Oct 20 | SOC Team Internals | SOC L1 Alert Reporting | When and how to escalate; writing clear incident reports |
+| Oct 20 | SOC Team Internals | SOC Workbooks and Lookups | Workbooks and asset/identity lookups to speed up triage |
+| Oct 20 | SOC Team Internals | SOC Metrics and Objectives | MTTD (Mean Time to Detect), MTTR (Mean Time to Respond), FP rate |
+| Oct 20 | SOC Team Internals | Introduction to Phishing *(SOC Simulator)* | First hands-on triage in a simulated SOC queue |
+| Oct 21 | Core SOC Solutions | Introduction to EDR | EDR (Endpoint Detection and Response): endpoint telemetry and response |
+| Oct 21 | Core SOC Solutions | Introduction to SIEM | Log collection, correlation and alerting |
+| Oct 21 | Core SOC Solutions | Splunk: The Basics | Log investigations with SPL (Search Processing Language) |
 | Oct 22 | Core SOC Solutions | Elastic Stack: The Basics | KQL (Kibana Query Language), Discover, Lens visualizations |
 | Oct 22 | Core SOC Solutions | Introduction to SOAR | SOAR (Security Orchestration, Automation, and Response) playbooks; automation vs. human judgment |
-| Oct 23–24 | Cyber Defence Frameworks | Pyramid of Pain | IOC (Indicator of Compromise) value; Emotet User-Agent as a network artifact |
+| Oct 24 | Cyber Defence Frameworks | Pyramid of Pain | IOC (Indicator of Compromise) value; Emotet User-Agent as a network artifact |
 | Oct 24 | Cyber Defence Frameworks | Cyber Kill Chain | Mapping the 2013 Target breach to the 7 stages |
 | ⏳ | Cyber Defence Frameworks | Unified Kill Chain | — |
 | ⏳ | Cyber Defence Frameworks | MITRE | — |

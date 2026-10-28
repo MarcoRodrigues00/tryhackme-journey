@@ -14,7 +14,7 @@ TryHackMe profile: [tryhackme.com/p/marcorodrigues](https://tryhackme.com/p/marc
 ## TL;DR
 
 - 🎯 **Goal:** SOC L1 (Level 1) Analyst as entry point → AppSec (Application Security) / DevSecOps (Development, Security and Operations).
-- 📈 **Progress:** 17 rooms in 4 modules (Blue Team Introduction, SOC Team Internals, Core SOC Solutions, part of Cyber Defence Frameworks).
+- 📈 **Progress:** 18 rooms in 4 modules (Blue Team Introduction, SOC Team Internals, Core SOC Solutions, part of Cyber Defence Frameworks).
 - 🧪 **Applying it:** building **snowSIEM**, a homelab SIEM (Security Information and Event Management) on the Elastic Stack, with my own detections validated against simulated attacks.
 
 ---
@@ -40,7 +40,7 @@ TryHackMe profile: [tryhackme.com/p/marcorodrigues](https://tryhackme.com/p/marc
 | Oct 24 | Cyber Defence Frameworks | Pyramid of Pain | IOC (Indicator of Compromise) value; Emotet User-Agent as a network artifact |
 | Oct 24 | Cyber Defence Frameworks | Cyber Kill Chain | Mapping the 2013 Target breach to the 7 stages |
 | Oct 27 | Cyber Defence Frameworks | Unified Kill Chain | 18 phases in 3 cycles (In → Through → Out) that model the whole attack, not just the break-in |
-| ⏳ | Cyber Defence Frameworks | MITRE | — |
+| Oct 27 | Cyber Defence Frameworks | MITRE | ATT&CK for adversary behavior, CAR for ready-made detection analytics, D3FEND for the matching countermeasures |
 | ⏳ | Cyber Defence Frameworks | Summit | — |
 | ⏳ | Cyber Defence Frameworks | Eviction | — |
 
@@ -72,11 +72,22 @@ Emotet often uses outdated, hardcoded User-Agents (e.g. MSIE 7.0 on Windows 7). 
 **7. The breach doesn't end at the perimeter.** *(Unified Kill Chain)*
 The classic Kill Chain stops once the attacker gets in. The UKC (Unified Kill Chain) keeps going: **In** (initial foothold, e.g. phishing), **Through** (pivoting, privilege escalation, lateral movement) and **Out** (collection, exfiltration, impact). The phases are cyclic, not linear — the attacker can loop back to recon from inside. For a SOC, that means detections have to exist on every cycle, not only at the edge.
 
+**8. Tactic is the *why*, technique is the *how* — don't mix them.** *(MITRE)*
+Mustang Panda uses T1087 (Account Discovery), but that sits under the **Discovery** tactic, after the attacker is already inside. Reconnaissance is a separate tactic (TA0043, techniques in the T1589–T1598 range) that happens *before* the breach. Same group, same page, different phase of the attack.
+
+**9. MITRE is a whole toolbox, not just ATT&CK.** *(MITRE)*
+- **CAR (Cyber Analytics Repository):** detection analytics ready to adapt into SIEM rules, each tagged by type (TTP, Anomaly, Situational Awareness) and mapped to ATT&CK.
+- **D3FEND:** the defensive mirror of ATT&CK, listing the countermeasure for each technique.
+- **CALDERA:** automated adversary emulation, running real ATT&CK techniques against your own lab. A natural fit to validate snowSIEM detections next to Atomic Red Team.
+- **AADAPT (Adversarial Actions in Digital Asset Payment Technologies):** an ATT&CK-style knowledge base for attacks on digital asset and payment systems.
+
+CALDERA and AADAPT were new to me and were the best surprise of the room.
+
 ---
 
 ## 🔨 Where I apply this
 
-- **snowSIEM** *(in progress)* — homelab SIEM on ELK (Elasticsearch, Logstash, Kibana): custom Logstash pipelines, ECS (Elastic Common Schema) normalization, detections mapped to MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge), validated with Atomic Red Team.
+- **snowSIEM** *(in progress)* — homelab SIEM on ELK (Elasticsearch, Logstash, Kibana): custom Logstash pipelines, ECS (Elastic Common Schema) normalization, detections mapped to MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge), validated with Atomic Red Team (and CALDERA next).
 - Detection ideas already born from these rooms:
   - [ ] VPN login by a terminated / disabled user
   - [ ] Outdated browser User-Agent leaving the internal network
@@ -125,6 +136,9 @@ The classic Kill Chain stops once the attacker gets in. The UKC (Unified Kill Ch
 | UKC | Unified Kill Chain |
 | CIA | Confidentiality, Integrity, Availability |
 | PII | Personally Identifiable Information |
+| CAR | Cyber Analytics Repository |
+| D3FEND | Detection, Denial, and Disruption Framework Empowering Network Defense |
+| AADAPT | Adversarial Actions in Digital Asset Payment Technologies |
 
 ---
 

@@ -39,7 +39,7 @@ TryHackMe profile: [tryhackme.com/p/marcorodrigues](https://tryhackme.com/p/marc
 | Oct 22 | Core SOC Solutions | Introduction to SOAR | SOAR (Security Orchestration, Automation, and Response) playbooks; automation vs. human judgment |
 | Oct 24 | Cyber Defence Frameworks | Pyramid of Pain | IOC (Indicator of Compromise) value; Emotet User-Agent as a network artifact |
 | Oct 24 | Cyber Defence Frameworks | Cyber Kill Chain | Mapping the 2013 Target breach to the 7 stages |
-| Oct 27 | Cyber Defence Frameworks | Unified Kill Chain | 18 phases in 3 stages (In, Through, Out); phishing as initial foothold; data leaks hit Confidentiality in the CIA triad |
+| Oct 27 | Cyber Defence Frameworks | Unified Kill Chain | 18 phases in 3 cycles (In → Through → Out) that model the whole attack, not just the break-in |
 | ⏳ | Cyber Defence Frameworks | MITRE | — |
 | ⏳ | Cyber Defence Frameworks | Summit | — |
 | ⏳ | Cyber Defence Frameworks | Eviction | — |
@@ -69,8 +69,8 @@ A VPN (Virtual Private Network) login from a user terminated weeks earlier means
 **6. Malware leaves fingerprints in headers.** *(Pyramid of Pain)*
 Emotet often uses outdated, hardcoded User-Agents (e.g. MSIE 7.0 on Windows 7). Easy IOC to hunt and a cheap detection rule.
 
-**7. Spelling counts in the answer box.** *(Unified Kill Chain)*
-Right concept, wrong spelling ("confidenciality") still fails the check, and too many retries trigger a rate limit. Slow down and double-check English terms.
+**7. The breach doesn't end at the perimeter.** *(Unified Kill Chain)*
+The classic Kill Chain stops once the attacker gets in. The UKC (Unified Kill Chain) keeps going: **In** (initial foothold, e.g. phishing), **Through** (pivoting, privilege escalation, lateral movement) and **Out** (collection, exfiltration, impact). The phases are cyclic, not linear — the attacker can loop back to recon from inside. For a SOC, that means detections have to exist on every cycle, not only at the edge.
 
 ---
 

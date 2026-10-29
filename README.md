@@ -14,7 +14,7 @@ TryHackMe profile: [tryhackme.com/p/marcorodrigues](https://tryhackme.com/p/marc
 ## TL;DR
 
 - 🎯 **Goal:** SOC L1 (Level 1) Analyst as entry point → AppSec (Application Security) / DevSecOps (Development, Security and Operations).
-- 📈 **Progress:** 18 rooms in 4 modules (Blue Team Introduction, SOC Team Internals, Core SOC Solutions, part of Cyber Defence Frameworks).
+- 📈 **Progress:** 19 rooms in 4 modules (Blue Team Introduction, SOC Team Internals, Core SOC Solutions, part of Cyber Defence Frameworks).
 - 🧪 **Applying it:** building **snowSIEM**, a homelab SIEM (Security Information and Event Management) on the Elastic Stack, with my own detections validated against simulated attacks.
 
 ---
@@ -41,7 +41,7 @@ TryHackMe profile: [tryhackme.com/p/marcorodrigues](https://tryhackme.com/p/marc
 | Oct 24 | Cyber Defence Frameworks | Cyber Kill Chain | Mapping the 2013 Target breach to the 7 stages |
 | Oct 27 | Cyber Defence Frameworks | Unified Kill Chain | 18 phases in 3 cycles (In → Through → Out) that model the whole attack, not just the break-in |
 | Oct 27 | Cyber Defence Frameworks | MITRE | ATT&CK for adversary behavior, CAR for ready-made detection analytics, D3FEND for the matching countermeasures |
-| ⏳ | Cyber Defence Frameworks | Summit | — |
+| Oct 28 | Cyber Defence Frameworks | Summit | Climbed the whole Pyramid of Pain live: hash → IP → domain → host artifact → network beacon → TTP, each block forcing the attacker to adapt |
 | ⏳ | Cyber Defence Frameworks | Eviction | — |
 
 ---
@@ -83,6 +83,17 @@ Mustang Panda uses T1087 (Account Discovery), but that sits under the **Discover
 
 CALDERA and AADAPT were new to me and were the best surprise of the room.
 
+**10. Every block costs the attacker more — until you hit their habits.** *(Summit)*
+A simulated adversary kept upgrading his malware each time I blocked it, and each fix had to go one level higher on the Pyramid of Pain:
+1. **Hash** → blocked sample1's hash. Trivial for him to recompile.
+2. **IP** → egress firewall deny to the C2 IP. He just moved servers.
+3. **Domain** → DNS filter on the C2 domain. Costlier: new domain, new setup.
+4. **Host artifact** → Sigma rule on the registry change that disables Defender real-time protection (Defense Evasion, TA0005).
+5. **Network artifact** → Sigma rule on the beacon *pattern* (fixed packet size + fixed interval), with remote IP/port set to *Any* (Command and Control, TA0011).
+6. **TTP** → Sigma rule on the file every recon command dumps into: `%temp%\exfiltr8.log` (Collection, TA0009). He can swap tools, but changing how he works hurts the most.
+
+Takeaway: detections on behavior (beacon timing, staging files) survive tool changes; detections on indicators (hashes, IPs) don't.
+
 ---
 
 ## 🔨 Where I apply this
@@ -92,6 +103,9 @@ CALDERA and AADAPT were new to me and were the best surprise of the room.
   - [ ] VPN login by a terminated / disabled user
   - [ ] Outdated browser User-Agent leaving the internal network
   - [ ] Single source IP spiking VPN connections
+  - [ ] Beaconing: same outbound packet size at a fixed interval to any destination
+  - [ ] Registry change disabling Defender real-time protection
+  - [ ] Recon commands staging output into a single temp file
 
 ---
 
@@ -100,7 +114,7 @@ CALDERA and AADAPT were new to me and were the best surprise of the room.
 - [x] Blue Team Introduction
 - [x] SOC Team Internals
 - [x] Core SOC Solutions
-- [ ] Cyber Defence Frameworks *(in progress)*
+- [ ] Cyber Defence Frameworks *(in progress — only Eviction left)*
 - [ ] Phishing Analysis
 - [ ] Network Traffic Analysis
 - [ ] Network Security Monitoring
@@ -138,6 +152,8 @@ CALDERA and AADAPT were new to me and were the best surprise of the room.
 | PII | Personally Identifiable Information |
 | CAR | Cyber Analytics Repository |
 | D3FEND | Detection, Denial, and Disruption Framework Empowering Network Defense |
+| TTP | Tactics, Techniques, and Procedures |
+| C2 | Command and Control |
 | AADAPT | Adversarial Actions in Digital Asset Payment Technologies |
 
 ---
